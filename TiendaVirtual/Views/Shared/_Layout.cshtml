@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    @section scripts{
+        @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    }
+
+    <style>
+        body {
+            background-color: #ffe1c9;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="banner">
+        <center><img src="~/Image/logo.png" height="150" /></center>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="/Home/Index">Inicio</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown mr-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Tienda
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Home/Products?page=1&cat=1">Alimentos</a>
+                        <a class="dropdown-item" href="/Home/Products?page=1&cat=2">Suplementos</a>
+                        <a class="dropdown-item" href="/Home/Products?page=1&cat=3">Bebidas</a>
+                    </div>
+                </li>
+                <li>
+                    <form class="form-inline my-2 my-lg-0" action="/Home/Products" method="get">
+                        <input type="hidden" id="page" name="page" value="1">
+                        <input type="hidden" id="cat" name="cat" value="0">
+                        <input class="form-control mr-sm-2" type="search" id="search" name="search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0 mr-4" type="submit">Buscar</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Contact">Contáctanos</a>
+                </li>
+            </ul>
+            <h3><a class="dropdown-item" href="/Home/Carrito"><i class="bi bi-cart m-lg-2 carrito"></i></a></h3>
+        </div>
+    </nav>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <footer class="pie">
+        <p>DAS - Ciclo 01-2022 ©</p>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#search").on('change keyup paste', function () {
+                let searchValue = document.getElementById("search").value;
+            });
+        });
+
+    </script>
+
+    <style>
+        .banner {
+            background: linear-gradient(#fcf4ec, #f8ded3, #ffe1c9);
+        }
+
+        .pie {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 20px 10px 5px 10px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .carrito {
+            color: blue
+        }
+    </style>
+
+</body>
+</html>

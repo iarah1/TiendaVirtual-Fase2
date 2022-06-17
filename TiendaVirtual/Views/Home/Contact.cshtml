@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container">
+    <form id="contactus" action="/Home/Contact" method="post">
+        <h3>Contáctanos</h3>
+        <fieldset> <input placeholder="Nombre" name="Nombre" type="text" tabindex="1" required autofocus> </fieldset>
+        <fieldset> <input placeholder="Correo electrónico" type="email" name="Email" tabindex="2" required> </fieldset>
+        <fieldset> <select id="inputType" name="FeedbackTypeId" class="form-control-contact" required>
+                <option selected>Tipo de consulta</option>
+                <option value="1">Consulta</option>
+                <option value="2">Felicitación</option>
+                <option value="3">Queja</option>
+                <option value="4">Otro</option>
+        </select> </fieldset>
+        <fieldset> <textarea placeholder="Comentarios" name="Nota" tabindex="5" required></textarea> </fieldset>
+        <fieldset> <button name="Enviar" type="submit" id="contactus-submit" data-submit="...Enviando">Enviar</button> </fieldset>
+    </form>
+</div>
+
+<style>
+
+    .container {
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+    }
+
+    #contactus {
+        font: "Roboto", Helvetica, Arial, sans-serif;
+        background: #F9F9F9;
+        padding: 25px;
+        margin: 25px 0;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)
+    }
+
+    #contactus {
+    }
+
+        #contactus h3 {
+            font: "Roboto", Helvetica, Arial, sans-serif;
+            display: block;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2444d3
+        }
+
+        #contactus h4 {
+            margin: 5px 0 15px;
+            display: block;
+            font-size: 13px;
+            font-weight: 400
+        }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%
+    }
+
+    .form-control-contact {
+        border: 1px solid #ccc;
+        border-radius: 0;
+        color: gray;
+        height: 45px;
+        width: 100%;
+        margin: 0 0 5px;
+        padding: 10px
+    }
+
+    #contactus input[type="text"],
+    #contactus input[type="email"],
+    #contactus textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px
+    }
+
+        #contactus input[type="text"]:hover,
+        #contactus input[type="email"]:hover,
+        #contactus input[type="tel"]:hover,
+        #contactus textarea:hover {
+            -webkit-transition: border-color 0.3s ease-in-out;
+            -moz-transition: border-color 0.3s ease-in-out;
+            transition: border-color 0.3s ease-in-out;
+            border: 1px solid #aaa
+        }
+
+    #contactus textarea {
+        height: 150px;
+        max-width: 100%;
+        resize: none
+    }
+
+    #contactus button[type="submit"] {
+        cursor: pointer;
+        width: 111px;
+        border: none;
+        background: #ee3f72;
+        color: #FFF;
+        font-weight: bold;
+        padding: 10px;
+        font-size: 15px
+    }
+
+        #contactus button[type="submit"]:hover {
+            background: #f07150;
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out
+        }
+
+        #contactus button[type="submit"]:active {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5)
+        }
+
+    #contactus input:focus,
+    #contactus textarea:focus {
+        outline: 0;
+        border: 1px solid #aaa
+    }
+
+    ::-webkit-input-placeholder {
+        color: #888
+    }
+
+    :-moz-placeholder {
+        color: #888
+    }
+
+    ::-moz-placeholder {
+        color: #888
+    }
+
+    :-ms-input-placeholder {
+        color: #888
+    }
+</style>
